@@ -1,0 +1,38 @@
+<header class="pb-20 pt-3">
+  <div class="flex flex-row gap-x-0.5 justify-between gap-x-0">
+    <nav>
+      <ul class="flex flex-row gap-x-0.5">
+        <li><a
+            class="flex flex-row font-mono font-normal gap-x-0.5 h-8 items-center pt-[1px] px-2 rounded text-xs uppercase bg-none text-black active:bg-secondary-500 active:text-black dark:active:bg-secondary-500 dark:active:text-black dark:hover:bg-primary-800 dark:text-white hover:bg-primary-200"
+            href="/">{{ site.title }}</a></li>
+        {% for link in site.nav_links %}
+        <li><a
+            class="flex flex-row font-mono font-normal gap-x-0.5 h-8 items-center pt-[1px] px-2 rounded text-xs uppercase bg-primary-200/80 text-black active:bg-secondary-500 active:text-black dark:active:bg-secondary-500 dark:active:text-black dark:bg-primary-800/80 dark:hover:bg-primary-800 dark:text-white hover:bg-primary-200"
+            href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <details id="theme-options" class="relative">
+      <summary id="theme-option-summary"
+        class="cursor-pointer flex flex-row font-mono font-normal gap-x-0.5 h-8 items-center pt-[1px] px-2 rounded text-xs uppercase bg-primary-200/80 text-black active:bg-secondary-500 active:text-black dark:active:bg-secondary-500 dark:active:text-black dark:bg-primary-800/80 dark:hover:bg-primary-800 dark:text-white hover:bg-primary-200">
+      </summary>
+      <ul class="absolute right-0 mt-0.5 overflow-hidden rounded w-32 focus:outline-none">
+        {% for option in site.theme_options %}
+        <li
+          class="cursor-pointer flex-row flex font-mono font-normal gap-x-0.5 items-center leading-8 px-2 relative select-none text-xs uppercase text-black bg-primary-200/80 active:bg-secondary-500 active:text-black dark:active:bg-secondary-500 dark:active:fill-black dark:active:text-black dark:bg-primary-800/80 dark:fill-white dark:hover:bg-primary-800 dark:text-white hover:bg-primary-300">
+          {% if option.icon == "sun" %}
+          <span class="font-icon text-base text-black dark:text-white before:content-['1']"></span>
+          {% endif %}
+          {% if option.icon == "moon" %}
+          <span class="font-icon text-base text-black dark:text-white before:content-['2']"></span>
+          {% endif %}
+          {% if option.icon == "snowflake" %}
+          <span class="font-icon text-base text-black dark:text-white before:content-['3']"></span>
+          {% endif %}
+          {{ option.mode }}
+        </li>
+        {% endfor %}
+      </ul>
+    </details>
+  </div>
+</header>

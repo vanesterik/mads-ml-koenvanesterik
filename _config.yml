@@ -1,0 +1,45 @@
+# Site settings
+url: ""
+baseurl: ""
+
+# Build settings
+exclude:
+  - .gitignore
+  - bin
+  - LICENSE
+  - README.md
+
+# Site information used in page title, meta data etc.
+title: "MADS_ML_KVE"
+description: "MADS Machine Learning Portfolio of Koen van Esterik"
+
+# Author information
+author:
+  name: "Koen van Esterik"
+  email: koen@vanesterik.dev
+
+# Navigation links
+nav_links:
+  - title: Assignments
+    url: "/assignments"
+  - title: Reflections
+    url: "/reflections"
+
+# Dark mode links
+theme_options:
+  - mode: system
+    icon: snowflake
+  - mode: light
+    icon: sun
+  - mode: dark
+    icon: moon
+
+# Social links
+social_links:
+  - title: GitHub
+    url: https://github.com/vanesterik/
+  - title: LinkedIn
+    url: https://www.linkedin.com/in/kdesterik/
+
+# Copyright information
+copyright: "Koen Dirk van Esterik B.V. All rights reserved"

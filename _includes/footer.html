@@ -1,0 +1,19 @@
+<footer class="grid grid-cols-[3.5rem_auto] gap-8 pb-3 pt-40">
+  <div class="font-mono font-normal text-black text-xs uppercase dark:text-white">&gt;&gt;&gt;</div>
+  <ul class="leading-4">
+    <li><a
+        class="font-mono text-black text-xs uppercase dark:hover:text-secondary-500 dark:text-white hover:text-secondary-500"
+        href="mailto:{{ site.author.email }}" target="_self">{{ site.author.email }}</a></li>
+  </ul>
+  <div class="font-mono font-normal text-black text-xs uppercase dark:text-white">&gt;&gt;&gt;</div>
+  <ul class="leading-4">
+    {% for link in site.social_links %}
+    <li><a
+        class="font-mono text-black text-xs uppercase dark:hover:text-secondary-500 dark:text-white hover:text-secondary-500"
+        href="{{ link.url }}" rel="noopener noreferrer" target="_blank">{{ link.title }}</a></li>
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="font-mono font-normal text-primary-300 text-xs uppercase dark:text-primary-700">© <span id="get-current-year"></span></div>
+  <div class="font-mono font-normal text-primary-300 text-xs uppercase dark:text-primary-700">{{ site.copyright }}</div>
+</footer>

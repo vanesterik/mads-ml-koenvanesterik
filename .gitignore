@@ -1,0 +1,17 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Ruby-generated files
+.ruby-lsp/
+
+# Jekyll files
+_site/
+.jekyll-cache/
