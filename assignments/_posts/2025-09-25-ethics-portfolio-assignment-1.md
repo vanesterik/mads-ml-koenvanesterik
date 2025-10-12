@@ -20,12 +20,12 @@ For the lectures of ethics, we are asked to research ethical models. This to get
 
 The terms used in the assignment description are defined as follows:
 
-| Term            | Definition                                                                                                            |
-| --------------- | --------------------------------------------------------------------------------------------------------------------- |
-| Ethics          | Values held by society as a whole. (e.g. societal norms)                                                              |
-| Ethical model   | A framework for making ethical decisions.                                                                             |
-| Ethical dilemma | A situation in which two or more conflicting moral imperatives, none of which overrides the other, confront an agent. |
-| Data Science    | The extraction or extrapolation of knowledge from structured or unstructured data.                                   |
+| Term            | Definition                                                                                                                                          |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Ethics          | Values held by society as a whole. (e.g. societal norms)                                                                                            |
+| Ethical model   | A framework for making ethical decisions.                                                                                                           |
+| Ethical dilemma | A situation in which two or more conflicting moral imperatives, none of which overrides the other, confront an agent. {% cite EthicalDilemma2025 %} |
+| Data Science    | The extraction or extrapolation of knowledge from structured or unstructured data. {% cite DataScience2025 %}                                       |
 
 These definitions will be used as the foundation for this assignment.
 
@@ -45,7 +45,7 @@ The approach for this literature study are as follows:
 
 ## Results
 
-Initially, I found a comprehensive article (Status.net. (2023, August 15)) that outlined various ethical decision-making models (e.g. Kaplan University. (n.d.)). After reading this article and the references it provided, I was able to identify several other relevant sources (Potter Box. (2023), Oregon State University. (n.d.), Smith, J. (2024)).
+Initially, I found a comprehensive article {% cite wyattEthicalDecisionMaking2023 %} that outlined various ethical decision-making models (e.g. {% cite The_PLUS_Ethical_DecisionMaking_ModelPdf %}). After reading this article and the references it provided, I was able to identify several other relevant sources ({% cite PotterBox2024 %}, {% cite SevenStepApproachFigure %}, {% cite breidbachResponsibleAlgorithmicDecisionmaking2024 %}).
 
 Below a table summarizing and comparing four notable models:
 
@@ -73,12 +73,4 @@ However, I do acknowledge that applying the model may lead to different decision
 
 ## References
 
-Status.net. (2023, August 15). Ethical decision-making process model & framework. *Status.net*. <https://status.net/articles/ethical-decision-making-process-model-framework/>
-
-Kaplan University. (n.d.). The PLUS ethical decision-making model [PDF]. <https://kapextmediassl-a.akamaihd.net/artsSCi/Media/HN450/HN450_2202A/The_PLUS_Ethical_Decision-Making_Model.pdf>
-
-Potter Box. (2023). In *Wikipedia*. <https://en.wikipedia.org/wiki/Potter_Box>
-
-Oregon State University. (n.d.). Ethical case studies. <https://dusk.geo.orst.edu/buffgis/ethical_case_studies.pdf>
-
-Smith, J. (2024). Ethical decision-making in organizations. *ScienceDirect*. <https://www.sciencedirect.com/science/article/pii/S0090261624000044>
+{% bibliography --cited %}

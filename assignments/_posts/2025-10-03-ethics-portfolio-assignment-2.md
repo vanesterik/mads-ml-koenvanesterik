@@ -23,7 +23,7 @@ The terms used in the assignment description are defined as follows:
 | Term                             | Definition                                                                                                                                                                    |
 | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Ethics                           | Values held by society as a whole. (e.g. societal norms)                                                                                                                      |
-| Ethical Dilemma                  | A situation in which two or more conflicting moral imperatives, none of which overrides the other, confront an agent. {% cite EthicalDilemma2025 %}                                                        |
+| Ethical Dilemma                  | A situation in which two or more conflicting moral imperatives, none of which overrides the other, confront an agent. {% cite EthicalDilemma2025 %}                           |
 | Directional Acyclic Graphs (DAG) | A directed graph without cycles, meaning it's impossible to start at any node and return to it by following a consistently-directed path. {% cite DirectedAcyclicGraph2025 %} |
 | Data Science                     | The extraction or extrapolation of knowledge from structured or unstructured data. {% cite DataScience2025 %}                                                                 |
 
