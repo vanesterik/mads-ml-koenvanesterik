@@ -4,9 +4,6 @@ title: "Neural Networks Assignment Report"
 tags: machine-learning report
 ---
 
-[notebook]({{ "/notebooks/neural-networks/notebook.ipynb" | relative_url }})
-[journal]({{ "/notebooks/neural-networks/journal.txt" | relative_url }})
-
 ## Introduction
 
 For the lectures of Deep Learning and Deployment, we are tasked with exploring the intricacies of neural networks, their architectures, and their applications. This report aims to summarize the findings from the experiments conducted during the assignment.
