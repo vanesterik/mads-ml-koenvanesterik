@@ -1,0 +1,368 @@
+[2025-10-07 15:00:51] Effect of Hidden Units on Accuracy
+
+Objective:
+Test whether increasing the number of hidden units in the neural network increases accuracy.
+
+Hypothesis:
+More hidden units will increase accuracy.
+
+Methodology:
+Ran a grid search with two layers, testing combinations of 16, 32, 64, 128, 256, 512, and 1024 units using the defined neural network and dataset.
+
+Results:
+Combination of 512 x 512 units achieved 0.8708 accuracy. The highest unit value did not yield the highest accuracy.
+
+Evaluation:
+The results do not support the hypothesis. Increasing hidden units beyond a certain point did not improve accuracy.
+
+Conclusion:
+There is an optimal range for the number of hidden units; simply increasing them does not guarantee better performance.
+
+[2025-10-07 15:22:13] Effect of Hidden Units (384-640) on Accuracy
+
+Objective:
+Test whether the highest accuracy is achieved with hidden units between 384 and 512.
+
+Hypothesis:
+Highest accuracy is achieved between 384 and 512 units.
+
+Methodology:
+Ran a grid search with two layers, testing combinations of 384, 512, and 640 units using the defined neural network and dataset.
+
+Results:
+Combination of 384 x 512 units achieved 0.8761 accuracy. The increase between 512 x 384 and 512 x 512 was only 0.6 percent.
+
+Evaluation:
+The results support the hypothesis. The best accuracy was found in the range between 384 and 512 units, with only marginal gains beyond this range.
+
+Conclusion:
+There is an optimal range for the number of hidden units; increasing units beyond 512 does not significantly improve performance.
+
+[2025-10-07 15:36:31] Effect of Number of Epochs on Accuracy
+
+Objective:
+Test whether training for more than 3 epochs increases the model's accuracy.
+
+Hypothesis:
+Training for more than 3 epochs will increase accuracy.
+
+Methodology:
+Trained the model for 5 epochs instead of 3, using the same network architecture and dataset. Also compared the effect of switching the layer composition from 512 x 384 to 384 x 512 units.
+
+Results:
+Training for 5 epochs did not increase accuracy; it remained at 0.8761. However, changing the layer composition from 512 x 384 to 384 x 512 increased accuracy from 0.8708 to 0.8795.
+
+Evaluation:
+The results do not support the hypothesis. Increasing the number of epochs from 3 to 5 did not improve accuracy, but changing the order of units in the layers did have a positive effect.
+
+Conclusion:
+Simply increasing the number of epochs does not guarantee better performance. The architecture and composition of layers can have a more significant impact on accuracy.
+
+[2025-10-07 16:15:21] Effect of Increasing Epochs (5 vs 3) with 384 x 512 Units
+
+Objective:
+Test whether training for 5 epochs instead of 3, with a fixed combination of 384 x 512 units, increases accuracy.
+
+Hypothesis:
+Training for 5 epochs with 384 x 512 units will achieve higher accuracy than training for 3 epochs.
+
+Methodology:
+Trained the model with 384 x 512 units for 5 epochs and compared the accuracy to the result from 3 epochs.
+
+Results:
+The combination of 384 x 512 units with 5 epochs achieved 0.88 accuracy, which is higher than the accuracy achieved with 3 epochs.
+
+Evaluation:
+The results support the hypothesis. Increasing the number of epochs from 3 to 5 led to improved accuracy for this specific layer configuration.
+
+Conclusion:
+For the 384 x 512 unit configuration, training for more epochs can improve model performance, but the effect may depend on the chosen architecture and other hyperparameters.
+
+[2025-10-07 16:16:32] Effect of Increasing Epochs (10 vs 5) with 384 x 512 Units
+
+Objective:
+Test whether training for 10 epochs instead of 5, with a fixed combination of 384 x 512 units, increases accuracy.
+
+Hypothesis:
+Training for 10 epochs with 384 x 512 units will achieve higher accuracy than training for 5 epochs.
+
+Methodology:
+Trained the model with 384 x 512 units for 10 epochs and compared the accuracy to the result from 5 epochs.
+
+Results:
+The combination of 384 x 512 units with 10 epochs achieved 0.8906 accuracy, which is higher than the accuracy achieved with 5 epochs.
+
+Evaluation:
+The results support the hypothesis. Increasing the number of epochs from 5 to 10 led to improved accuracy for this specific layer configuration.
+
+Conclusion:
+For the 384 x 512 unit configuration, training for more epochs can further improve model performance, but the effect may depend on the chosen architecture and other hyperparameters.
+
+[2025-10-07 16:21:00] Effect of Increasing Epochs (20 vs 5) with Early Stopping
+
+Objective:
+Test whether training for 20 epochs instead of 5, with a set combination of layers, increases accuracy.
+
+Hypothesis:
+Training for 20 epochs with the same layer configuration will achieve higher accuracy than training for 5 epochs.
+
+Methodology:
+Trained the model for up to 20 epochs with early stopping enabled, using the same network architecture and dataset.
+
+Results:
+Early stopping halted training at 17 epochs, achieving 0.8945 accuracy. This was higher than the accuracy at 5 epochs.
+
+Evaluation:
+The results partially support the hypothesis. While accuracy increased, the improvement was due to early stopping rather than completing all 20 epochs.
+
+Conclusion:
+Allowing more epochs with early stopping can improve accuracy, but the model may not require all scheduled epochs to reach optimal performance.
+
+[2025-10-07 16:30:14] Effect of Batch Size (32 vs 64) on Accuracy
+
+Objective:
+Test whether using a batch size of 32 instead of 64 increases accuracy.
+
+Hypothesis:
+Batch size of 32 will achieve higher accuracy than batch size of 64.
+
+Methodology:
+Trained the model with batch sizes of 32 and 64, comparing accuracy and training duration.
+
+Results:
+Batch size 32 achieved 0.8943 accuracy, while batch size 64 achieved 0.8945 accuracy. Training with batch size 32 stopped earlier (16 epochs) but took more time.
+
+Evaluation:
+The results do not support the hypothesis. Batch size 64 slightly outperformed batch size 32, and training time was longer for the smaller batch size.
+
+Conclusion:
+Reducing batch size does not necessarily improve accuracy and may increase training time.
+
+[2025-10-07 16:37:06] Effect of Batch Size (128 vs 64) on Accuracy
+
+Objective:
+Test whether using a batch size of 128 instead of 64 increases accuracy.
+
+Hypothesis:
+Batch size of 128 will achieve higher accuracy than batch size of 64.
+
+Methodology:
+Trained the model with batch sizes of 128 and 64, comparing accuracy.
+
+Results:
+Batch size 128 achieved 0.8837 accuracy, while batch size 64 achieved 0.8945 accuracy.
+
+Evaluation:
+The results do not support the hypothesis. Batch size 64 outperformed batch size 128.
+
+Conclusion:
+Increasing batch size beyond a certain point can reduce model accuracy.
+
+[2025-10-07 16:42:56] Effect of Learning Rate (1e-4 vs 1e-3) on Accuracy
+
+Objective:
+Test whether using a learning rate of 1e-4 instead of 1e-3 increases accuracy.
+
+Hypothesis:
+Learning rate of 1e-4 will achieve higher accuracy than 1e-3.
+
+Methodology:
+Trained the model with learning rates of 1e-4 and 1e-3, comparing accuracy.
+
+Results:
+Learning rate 1e-4 achieved 0.8903 accuracy, while 1e-3 achieved 0.8945 accuracy.
+
+Evaluation:
+The results do not support the hypothesis. Learning rate 1e-3 outperformed 1e-4.
+
+Conclusion:
+Lowering the learning rate does not always improve accuracy; optimal values depend on the model and data.
+
+[2025-10-07 16:46:17] Effect of Learning Rate (1e-2 vs 1e-3) on Accuracy
+
+Objective:
+Test whether using a learning rate of 1e-2 instead of 1e-3 increases accuracy.
+
+Hypothesis:
+Learning rate of 1e-2 will achieve higher accuracy than 1e-3.
+
+Methodology:
+Trained the model with learning rates of 1e-2 and 1e-3, comparing accuracy.
+
+Results:
+Learning rate 1e-2 achieved 0.8495 accuracy, while 1e-3 achieved 0.8945 accuracy.
+
+Evaluation:
+The results do not support the hypothesis. Learning rate 1e-3 outperformed 1e-2.
+
+Conclusion:
+Increasing the learning rate too much can harm model performance.
+
+[2025-10-07 16:58:28] Effect of Adding an Additional Layer on Accuracy
+
+Objective:
+Test whether adding an additional layer to the neural network increases accuracy.
+
+Hypothesis:
+Adding an additional layer will increase accuracy.
+
+Methodology:
+Trained models with two and three layers, comparing accuracy for each configuration.
+
+Results:
+Three-layer network (256, 384, 512 units) achieved 0.8919 accuracy; two-layer network (384, 512 units) achieved 0.8945 accuracy.
+
+Evaluation:
+The results do not support the hypothesis. The two-layer network outperformed the three-layer network in this case.
+
+Conclusion:
+Adding more layers does not always improve accuracy; optimal architecture depends on the task and data.
+
+[2025-10-07 18:47:03] Effect of Additional Layer Combinations on Accuracy (1)
+
+Objective:
+Test whether adding an additional layer with different combinations of units increases accuracy.
+
+Hypothesis:
+Adding an additional layer with different unit combinations will increase accuracy.
+
+Methodology:
+Trained models with various three-layer configurations, comparing accuracy to the best two-layer result.
+
+Results:
+Some three-layer combinations achieved higher accuracy than the best two-layer result (0.8945), with the highest being 0.8972 (512, 384, 512 units).
+
+Evaluation:
+The results support the hypothesis. Certain three-layer configurations can outperform the best two-layer model.
+
+Conclusion:
+Exploring different layer combinations can lead to improved model performance.
+
+[2025-10-07 18:50:15] Effect of Additional Layer Combinations on Accuracy (2)
+
+Objective:
+Test whether adding an additional layer with different combinations of units increases accuracy.
+
+Hypothesis:
+Adding an additional layer with different unit combinations will increase accuracy.
+
+Methodology:
+Trained models with various three-layer configurations, comparing accuracy to the best previous result (0.8972).
+
+Results:
+All tested three-layer combinations achieved lower accuracy than 0.8972, with the highest being 0.8953 (384, 512, 384 units).
+
+Evaluation:
+The results do not support the hypothesis. Not all three-layer configurations outperform the best previous result.
+
+Conclusion:
+Not every additional layer or unit combination leads to better performance; careful tuning is required.
+
+[2025-10-07 18:53:15] Effect of Additional Layer Combinations on Accuracy (3)
+
+Objective:
+Test whether adding an additional layer with different combinations of units increases accuracy.
+
+Hypothesis:
+Adding an additional layer with different unit combinations will increase accuracy.
+
+Methodology:
+Trained models with various three-layer configurations, comparing accuracy to the best previous result (0.8972).
+
+Results:
+All tested three-layer combinations achieved lower accuracy than 0.8972, with the highest being 0.8966 (512, 512, 384 units).
+
+Evaluation:
+The results do not support the hypothesis. Not all three-layer configurations outperform the best previous result.
+
+Conclusion:
+Not every additional layer or unit combination leads to better performance; careful tuning is required.
+
+[2025-10-07 18:56:20] Effect of Additional Layer Combinations on Accuracy (4)
+
+Objective:
+Test whether adding an additional layer with different combinations of units increases accuracy.
+
+Hypothesis:
+Adding an additional layer with different unit combinations will increase accuracy.
+
+Methodology:
+Trained models with various three-layer configurations, comparing accuracy to the best previous result (0.8972).
+
+Results:
+All tested three-layer combinations achieved lower accuracy than 0.8972, with the highest being 0.8958 (512, 384, 384 units).
+
+Evaluation:
+The results do not support the hypothesis. Not all three-layer configurations outperform the best previous result.
+
+Conclusion:
+Not every additional layer or unit combination leads to better performance; careful tuning is required.
+
+[2025-10-07 18:59:15] Effect of Additional Layer Combinations on Accuracy (5)
+
+Objective:
+Test whether adding an additional layer with different combinations of units increases accuracy.
+
+Hypothesis:
+Adding an additional layer with different unit combinations will increase accuracy.
+
+Methodology:
+Trained models with various three-layer configurations, comparing accuracy to the best previous result (0.8972).
+
+Results:
+All tested three-layer combinations achieved lower accuracy than 0.8972, with the highest being 0.8958 (384, 384, 512 units).
+
+Evaluation:
+The results do not support the hypothesis. Not all three-layer configurations outperform the best previous result.
+
+Conclusion:
+Not every additional layer or unit combination leads to better performance; careful tuning is required.
+
+[2025-10-07 19:02:10] Effect of Additional Layer Combinations on Accuracy (6)
+
+Objective:
+Test whether adding an additional layer with different combinations of units increases accuracy.
+
+Hypothesis:
+Adding an additional layer with different unit combinations will increase accuracy.
+
+Methodology:
+Trained models with various three-layer configurations, comparing accuracy to the best previous result (0.8972).
+
+Results:
+All tested three-layer combinations achieved lower accuracy than 0.8972. Highest results:
+
+| Unit Combination | Accuracy |
+| ---------------- | -------- |
+| 512 x 348 x 512  | 0.8965   |
+| 256 x 512 x 256  | 0.8961   |
+| 384 x 256 x 512  | 0.8952   |
+| 512 x 384 x 384  | 0.8949   |
+| 256 x 384 x 512  | 0.8947   |
+| 512 x 512 x 256  | 0.8946   |
+
+Evaluation:
+The results do not support the hypothesis. Not all three-layer configurations outperform the best previous result.
+
+Conclusion:
+Not every additional layer or unit combination leads to better performance; careful tuning is required.
+
+[2025-10-07 19:25:05] Effect of Optimizer Choice (Adam vs SGD) on Accuracy
+
+Objective:
+Test whether switching the optimizer from Adam to SGD increases accuracy.
+
+Hypothesis:
+SGD will achieve higher accuracy than Adam.
+
+Methodology:
+Trained the model using both Adam and SGD optimizers, comparing accuracy.
+
+Results:
+SGD achieved 0.7596 accuracy, while Adam achieved 0.8965 accuracy.
+
+Evaluation:
+The results do not support the hypothesis. Adam outperformed SGD in this experiment.
+
+Conclusion:
+Optimizer choice can significantly impact model performance; Adam was superior to SGD for this task.

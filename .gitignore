@@ -1,3 +1,6 @@
+# os-specific files
+.DS_Store
+
 # Python-generated files
 __pycache__/
 *.py[oc]
@@ -5,6 +8,9 @@ build/
 dist/
 wheels/
 *.egg-info
+
+# Machine learning model logs
+modellogs/
 
 # Virtual environments
 .venv

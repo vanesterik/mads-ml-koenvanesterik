@@ -1,1 +1,0 @@
-[2025-10-04 13:32:14] Set initial grid search parameters from 16 to 1024 units per layer with a factor of 2 to easily scan ranges.
