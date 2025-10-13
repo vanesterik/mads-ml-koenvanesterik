@@ -45,7 +45,7 @@ The approach for this literature study are as follows:
 
 ## Results
 
-Initially, I found a comprehensive article {% cite wyattEthicalDecisionMaking2023 %} that outlined various ethical decision-making models (e.g. {% cite The_PLUS_Ethical_DecisionMaking_ModelPdf %}). After reading this article and the references it provided, I was able to identify several other relevant sources ({% cite PotterBox2024 %}, {% cite SevenStepApproachFigure %}, {% cite breidbachResponsibleAlgorithmicDecisionmaking2024 %}).
+Initially, I found a comprehensive article {% cite wyattEthicalDecisionMaking2023 %} that outlined various ethical decision-making models {% cite The_PLUS_Ethical_DecisionMaking_ModelPdf %}. After reading this article and the references it provided, I was able to identify several other relevant sources {% cite PotterBox2024 SevenStepApproachFigure breidbachResponsibleAlgorithmicDecisionmaking2024 %}.
 
 Below a table summarizing and comparing four notable models:
 
