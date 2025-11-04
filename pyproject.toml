@@ -8,11 +8,26 @@ dependencies = [
     "hyperopt>=0.2.7",
     "mads-datasets[torch]>=0.3.14",
     "mltrainer>=0.2.5",
-    "tomlserializer>=0.2.0",
-]
-
-[dependency-groups]
-dev = [
+    "mypy>=1.18.2",
     "notebooktester>=0.2.1",
     "ruff>=0.12.11",
+    "tabulate>=0.9.0",
+    "tomlserializer>=0.2.0",
+    "torchinfo>=1.8.0",
 ]
+
+[tool.ruff]
+line-length = 80
+src = ["mads_nxp_project"]
+include = ["pyproject.toml", "notebooks/**/*.ipynb"]
+
+[tool.ruff.lint]
+extend-select = ["I"]  # Add import sorting
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
+
+[tool.mypy]
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true

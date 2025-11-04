@@ -14,7 +14,7 @@ tags: machine-learning report
 
 ## Introduction
 
-For the lectures of Deep Learning and Deployment, we are tasked with exploring the intricacies of neural networks, their architectures, and their applications. This report aims to summarize the findings from the experiments conducted during the assignment.
+For the lectures of Deep Learning and Deployment, we are tasked with exploring the intricacies of **neural networks**, their architectures, and their applications. This report aims to summarize the findings from the experiments conducted during the assignment.
 
 You can find the the code for this assignment in the [notebook]({{ "/notebooks/neural-networks/notebook.ipynb" | relative_url }}). The [journal]({{ "/notebooks/neural-networks/journal.txt" | relative_url }}) contains a detailed log of the experiments, observations, and conclusions drawn during the assignment and is also included as appendix to this report.
 
@@ -36,7 +36,7 @@ The instructions for this assignment are as follows:
 2. Design an experiment based on the hypothesis.
 3. Run the experiment.
 4. Analyze the results and draw conclusions.
-5. Repeat steps 2-4 to explore more aspects of neural networks.
+5. Repeat steps 1-4 to explore more aspects of neural networks.
 
 ## Results
 
@@ -66,7 +66,7 @@ In conclusion, the experiments conducted during this assignment have provided va
 
 ### Journal Entries
 
-#### 2025-10-07 15:00:51 Effect of Hidden Units on Accuracy
+#### 2025/10/07, 15:00:51 Effect of Hidden Units on Accuracy
 
 **Objective:**
 Test whether increasing the number of hidden units in the neural network increases accuracy.
@@ -86,7 +86,7 @@ The results do not support the hypothesis. Increasing hidden units beyond a cert
 **Conclusion:**
 There is an optimal range for the number of hidden units; simply increasing them does not guarantee better performance.
 
-#### 2025-10-07 15:22:13 Effect of Hidden Units (384-640) on Accuracy
+#### 2025/10/07, 15:22:13 Effect of Hidden Units (384-640) on Accuracy
 
 **Objective:**
 Test whether the highest accuracy is achieved with hidden units between 384 and 512.
@@ -106,7 +106,7 @@ The results support the hypothesis. The best accuracy was found in the range bet
 **Conclusion:**
 There is an optimal range for the number of hidden units; increasing units beyond 512 does not significantly improve performance.
 
-#### 2025-10-07 15:36:31 Effect of Number of Epochs on Accuracy
+#### 2025/10/07, 15:36:31 Effect of Number of Epochs on Accuracy
 
 **Objective:**
 Test whether training for more than 3 epochs increases the model's accuracy.
@@ -126,7 +126,7 @@ The results do not support the hypothesis. Increasing the number of epochs from 
 **Conclusion:**
 Simply increasing the number of epochs does not guarantee better performance. The architecture and composition of layers can have a more significant impact on accuracy.
 
-#### 2025-10-07 16:15:21 Effect of Increasing Epochs (5 vs 3) with 384 x 512 Units
+#### 2025/10/07, 16:15:21 Effect of Increasing Epochs (5 vs 3) with 384 x 512 Units
 
 **Objective:**
 Test whether training for 5 epochs instead of 3, with a fixed combination of 384 x 512 units, increases accuracy.
@@ -146,7 +146,7 @@ The results support the hypothesis. Increasing the number of epochs from 3 to 5 
 **Conclusion:**
 For the 384 x 512 unit configuration, training for more epochs can improve model performance, but the effect may depend on the chosen architecture and other hyperparameters.
 
-#### 2025-10-07 16:16:32 Effect of Increasing Epochs (10 vs 5) with 384 x 512 Units
+#### 2025/10/07, 16:16:32 Effect of Increasing Epochs (10 vs 5) with 384 x 512 Units
 
 **Objective:**
 Test whether training for 10 epochs instead of 5, with a fixed combination of 384 x 512 units, increases accuracy.
@@ -166,7 +166,7 @@ The results support the hypothesis. Increasing the number of epochs from 5 to 10
 **Conclusion:**
 For the 384 x 512 unit configuration, training for more epochs can further improve model performance, but the effect may depend on the chosen architecture and other hyperparameters.
 
-#### 2025-10-07 16:21:00 Effect of Increasing Epochs (20 vs 5) with Early Stopping
+#### 2025/10/07, 16:21:00 Effect of Increasing Epochs (20 vs 5) with Early Stopping
 
 **Objective:**
 Test whether training for 20 epochs instead of 5, with a set combination of layers, increases accuracy.
@@ -186,7 +186,7 @@ The results partially support the hypothesis. While accuracy increased, the impr
 **Conclusion:**
 Allowing more epochs with early stopping can improve accuracy, but the model may not require all scheduled epochs to reach optimal performance.
 
-#### 2025-10-07 16:30:14 Effect of Batch Size (32 vs 64) on Accuracy
+#### 2025/10/07, 16:30:14 Effect of Batch Size (32 vs 64) on Accuracy
 
 **Objective:**
 Test whether using a batch size of 32 instead of 64 increases accuracy.
@@ -206,7 +206,7 @@ The results do not support the hypothesis. Batch size 64 slightly outperformed b
 **Conclusion:**
 Reducing batch size does not necessarily improve accuracy and may increase training time.
 
-#### 2025-10-07 16:37:06 Effect of Batch Size (128 vs 64) on Accuracy
+#### 2025/10/07, 16:37:06 Effect of Batch Size (128 vs 64) on Accuracy
 
 **Objective:**
 Test whether using a batch size of 128 instead of 64 increases accuracy.
@@ -226,7 +226,7 @@ The results do not support the hypothesis. Batch size 64 outperformed batch size
 **Conclusion:**
 Increasing batch size beyond a certain point can reduce model accuracy.
 
-#### 2025-10-07 16:42:56 Effect of Learning Rate (1e-4 vs 1e-3) on Accuracy
+#### 2025/10/07, 16:42:56 Effect of Learning Rate (1e-4 vs 1e-3) on Accuracy
 
 **Objective:**
 Test whether using a learning rate of 1e-4 instead of 1e-3 increases accuracy.
@@ -246,7 +246,7 @@ The results do not support the hypothesis. Learning rate 1e-3 outperformed 1e-4.
 **Conclusion:**
 Lowering the learning rate does not always improve accuracy; optimal values depend on the model and data.
 
-#### 2025-10-07 16:46:17 Effect of Learning Rate (1e-2 vs 1e-3) on Accuracy
+#### 2025/10/07, 16:46:17 Effect of Learning Rate (1e-2 vs 1e-3) on Accuracy
 
 **Objective:**
 Test whether using a learning rate of 1e-2 instead of 1e-3 increases accuracy.
@@ -266,7 +266,7 @@ The results do not support the hypothesis. Learning rate 1e-3 outperformed 1e-2.
 **Conclusion:**
 Increasing the learning rate too much can harm model performance.
 
-#### 2025-10-07 19:02:10 Effect of Additional Layer Combinations on Accuracy
+#### 2025/10/07, 19:02:10 Effect of Additional Layer Combinations on Accuracy
 
 **Objective:**
 Test whether adding an additional layer with different combinations of units increases accuracy.
@@ -295,7 +295,7 @@ The results do not support the hypothesis. Not all three-layer configurations ou
 **Conclusion:**
 Not every additional layer or unit combination leads to better performance; careful tuning is required.
 
-#### 2025-10-07 19:25:05 Effect of Optimizer Choice (Adam vs SGD) on Accuracy
+#### 2025/10/07, 19:25:05 Effect of Optimizer Choice (Adam vs SGD) on Accuracy
 
 **Objective:**
 Test whether switching the optimizer from Adam to SGD increases accuracy.

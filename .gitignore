@@ -11,6 +11,9 @@ wheels/
 
 # Machine learning model logs
 modellogs/
+models/
+mlruns/
+mlflow.db
 
 # Virtual environments
 .venv
