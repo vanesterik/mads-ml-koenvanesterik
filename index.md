@@ -1,8 +1,4 @@
 ---
 layout: default
-title: "Happy Jekylling!"
+title: "MADS Portfolio by Koen van Esterik"
 ---
-
-## You're ready to go!!!
-
-Start developing your Jekyll website.
