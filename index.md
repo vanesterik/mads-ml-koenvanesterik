@@ -1,4 +1,4 @@
 ---
-layout: default
-title: "MADS Portfolio by Koen van Esterik"
+layout: home
+title: "Portfolio"
 ---
