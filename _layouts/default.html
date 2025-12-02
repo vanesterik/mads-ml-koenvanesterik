@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
-
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="utf-8">
-  <title>{{ page.title }} - {{ site.title }}</title>
-  <link rel="stylesheet" href="{{ "/assets/css/styles.css" | relative_url }}">
-</head>
+---
+layout: skeleton
+---
 
 <body class="flex flex-col h-screen px-3 gap-0.5">
   {% include header.html %}
@@ -15,75 +9,3 @@
   </main>
   {% include footer.html %}
 </body>
-
-<script>
-  /* Funtion for getting the current year in the footer */
-  (function () {
-    if (document.getElementById("get-current-year")) {
-      document.getElementById(
-        "get-current-year"
-      ).innerHTML = new Date().getFullYear();
-    }
-  })();
-
-  /* Function for theme options */
-  (function () {
-    const themeOptions = document.getElementById("theme-options");
-    const themeOptionItems = themeOptions.getElementsByTagName("li");
-    const themeOptionSummary = document.getElementById("theme-option-summary");
-    const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const setTheme = (theme) => {
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
-        localStorage.setItem("theme", "dark");
-        themeOptionSummary.innerHTML =
-          '<span class="font-icon text-base text-black dark:text-white before:content-[\'2\']"></span>dark';
-      } else if (theme === "light") {
-        document.documentElement.classList.remove("dark");
-        localStorage.setItem("theme", "light");
-        themeOptionSummary.innerHTML =
-          '<span class="font-icon text-base text-black dark:text-white before:content-[\'1\']"></span>light';
-      } else {
-        localStorage.removeItem("theme");
-        if (darkModeMediaQuery.matches) {
-          document.documentElement.classList.add("dark");
-          themeOptionSummary.innerHTML =
-            '<span class="font-icon text-base text-black dark:text-white before:content-[\'2\']"></span>system';
-        } else {
-          document.documentElement.classList.remove("dark");
-          themeOptionSummary.innerHTML =
-            '<span class="font-icon text-base text-black dark:text-white before:content-[\'1\']"></span>system';
-        }
-      }
-    };
-    // Initialize theme on page load
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else {
-      setTheme("system");
-    }
-    // Listen for changes in system theme preference
-    darkModeMediaQuery.addEventListener("change", () => {
-      if (!localStorage.getItem("theme")) {
-        setTheme("system");
-      }
-    });
-    // Add click event listeners to theme option items
-    Array.from(themeOptionItems).forEach((item) => {
-      item.addEventListener("click", () => {
-        const selectedTheme = item.textContent.trim();
-        setTheme(selectedTheme);
-        themeOptions.removeAttribute("open");
-      });
-    });
-    // Close the dropdown when clicking outside
-    document.addEventListener("click", (event) => {
-      if (!themeOptions.contains(event.target)) {
-        themeOptions.removeAttribute("open");
-      }
-    });
-  })();
-</script>
-
-</html>

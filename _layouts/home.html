@@ -1,5 +1,9 @@
 ---
-layout: default
+layout: skeleton
 ---
 
-<img src="/assets/images/rabbit-hole.png" alt="Rabbit Hole" style="width:100%; height:auto;"/>
+<body class="flex flex-col h-screen px-3 gap-0.5 bg-[url({{ "/assets/images/rabbit-hole.png" | relative_url }})] bg-center">
+  {% include header.html %}
+  <main class="flex-auto"></main>
+  {% include footer.html %}
+</body>
