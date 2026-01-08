@@ -45,9 +45,9 @@ The deployment was ultimately successful, though it required significant technic
 
 ## Discussion
 
-This case study highlights the critical need for "intuition for production." The findings suggest that developers cannot assume remote environments will be as forgiving as local development machines.
+This case study highlights the critical need for **no free lunch** for production deployment. The findings suggest that developers cannot assume remote environments will be as forgiving as local development machines.
 
-A key takeaway is the importance of understanding **the theoretical intersection between software dependencies and hardware specifications**. The *wall* encountered with PyTorch's size serves as a practical example of why early deployment is necessary. In the future, a *placeholder* strategy—deploying a skeleton container first to test server limits, will be adopted to identify infrastructure bottlenecks before the final model is integrated.
+A key takeaway is the importance of understanding **the theoretical intersection between software dependencies and hardware specifications**. The "wall" encountered with PyTorch's size serves as a practical example of why early deployment is necessary. In the future, a "placeholder" strategy—deploying a skeleton container first to test server limits, will be adopted to identify infrastructure bottlenecks before the final model is integrated.
 
 Comparing these results to industry standards, the move toward CPU-only inference is a recognized best practice for cost-effective, non-latency-critical applications. Future research and iterations will focus on implementing **CI/CD pipelines** to automate these checks.
 
