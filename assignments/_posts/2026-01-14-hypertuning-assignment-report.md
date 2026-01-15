@@ -16,7 +16,7 @@ tags: machine-learning report
 
 ## Introduction
 
-Training deep Convolutional Neural Networks (CNNs) often presents challenges related to slow convergence speeds and suboptimal final classification accuracy. These issues stem largely from the complexity of the optimization landscape and the phenomenon known as "Internal Covariate Shift", where the distribution of layer inputs changes during training. {% cite BatchNormalization2025 %} Addressing these inefficiencies is essential; achieving faster convergence and higher accuracy significantly reduces computational resource consumption and enhances the practical applicability of the model in real-world scenarios.
+Training deep Convolutional Neural Networks (CNNs) often presents challenges related to slow convergence speeds and suboptimal final classification accuracy. These issues stem largely from the complexity of the optimization landscape and the phenomenon known as "Internal Covariate Shift", where the distribution of layer inputs changes during training {% cite BatchNormalization2025 %}. Addressing these inefficiencies is essential; achieving faster convergence and higher accuracy significantly reduces computational resource consumption and enhances the practical applicability of the model in real-world scenarios.
 
 This study aims to quantify the benefits of architectural normalization techniques. The primary research question is:
 
@@ -39,13 +39,13 @@ The study utilizes the **Flowers Dataset**. This dataset consists of approximate
 
 The base model is a custom Convolutional Neural Network (CNN) defined in the provided [notebook]({{ "/notebooks/hypertuning/notebook.ipynb" | relative_url }}). The training procedure was designed to ensure a fair "apples-to-apples" comparison:
 
-1. **Hyperparameter Tuning:** The "Experimental" model (with Batch Norm) was first optimized using the `hyperopt` library. The optimization process was conducted over 50 evaluations (`max_evals=50`), as detailed in the configuration presented in Table 1.
-2. **Controlled Testing:** The optimal hyperparameters derived from the experimental phase were then fixed and applied to the "Control" model (without Batch Norm). This ensures that any difference in performance is attributable solely to the presence or absence of the normalization layers, rather than differences in learning rates or filter sizes.
+1. **Hyperparameter Tuning:** The "Experimental" model (with Batch Norm) was first optimized using the `hyperopt` library to identify the best initial hyperparameters. This optimization phase consisted of 50 evaluations (`max_evals=50`), with each candidate model trained for a limited duration of **20 epochs**, as detailed in the configuration presented in Table 1.
+2. **Controlled Testing:** The optimal hyperparameters derived from the tuning phase were then fixed and applied to both the "Experimental" and "Control" (without Batch Norm) architectures. To fully evaluate convergence behavior, both models were subsequently trained for an extended duration of **50 epochs**. This ensures that any difference in performance is attributable solely to the presence or absence of the normalization layers, rather than differences in learning rates, filter sizes, or training duration.
 
 | Setting           | Value       |
 | ----------------- | ----------- |
 | Batch Size        | 64          |
-| Epochs            | 20          |
+| Epochs            | 50          |
 | Train Steps       | 180         |
 | Valid Steps       | 180         |
 | Learning Rate     | 0.001       |
@@ -68,32 +68,33 @@ The inclusion of Batch Normalization resulted in a measurable improvement in mod
 
 | Metric             | With Batch Norm | Without Batch Norm |
 | ------------------ | --------------- | ------------------ |
-| Test Accuracy      | 0.85            | 0.75               |
-| Epochs to Converge | 10              | 18                 |
+| Test Accuracy      | 0.78            | 0.77               |
+| Epochs to Converge | 25              | 49                 |
 
 *Table 2: Performance comparison between models with and without Batch Normalization.*
 
-!!! ADD LOSS vs EPOCHS PLOTS
+![Loss vs Epochs: Without Batch Normalization](/assets/images/without_batchnorm.png)
+![Loss vs Epochs: With Batch Normalization](/assets/images/with_batchnorm.png)
 
 The hypothesis stated that accuracy would improve by at least 0.1 (10%).
 
-- **Result:** The actual improvement was 0.05 (5%). Therefore, the quantitative accuracy threshold of the hypothesis was **not met**.
-- **Observation:** However, the second part of the hypothesis regarding convergence was strongly supported. The reduction in training epochs (approx. 8 epochs reduction) demonstrates a profound efficiency gain. The normalization of weights between layers proved to have a much larger impact on training stability than anticipated.
+- **Result:** The actual improvement was 0.01 (1%). Therefore, the quantitative accuracy threshold of the hypothesis was **not met**.
+- **Observation:** While the second part of the hypothesis regarding convergence was strongly supported, showing a dramatic acceleration of training loss reduction with Batch Normalization (Figure 2, blue line), the results were not entirely stable. The validation loss for the normalized model (Figure 2, orange line) exhibited significant volatility, calculating values between 0.6 and 1.0 after the 5th step, whereas the control model's validation loss (Figure 1) remained smooth.
 
 ## Discussion
 
-One significant challenge encountered during this research was the extreme duration of the hyperparameter tuning process (> 900 mins). The search for optimal parameters was computationally expensive and time-consuming, which limited the number of evaluations that could be performed within a reasonable timeframe. To improve the efficiency of future experiments, several strategies could be adopted.
+One significant challenge encountered during this research was the extreme duration of the hyperparameter tuning process (> 24 hours). The search for optimal parameters was computationally expensive and time-consuming, which limited the number of evaluations that could be performed within a reasonable timeframe. To improve the efficiency of future experiments, several strategies could be adopted.
 
 - Applying the recommendation of using smaller input image dimensions, would drastically reduce the computational load per epoch.
 - Utilizing more capable hardware would accelerate the training steps, allowing for a more extensive search space or a higher number of `max_evals` in the same amount of time.
 
 Furthermore, the experimental design relied on hyperparameter tuning solely on the "Experimental" model (with Batch Normalization) and applying those fixed parameters to the "Control" model. In the pursuit of isolating the specific effect of Batch Normalization, this was a methodologically sound decision, as it ensured that any performance difference was due to the architecture change rather than differing hyperparameters. However, this approach may have  disadvantaged the control model, as the optimal learning rate or filter sizes for a normalized network might differ from those of an unnormalized one. Future work could consider performing separate hyperparameter searches for both configurations to compare the *best possible version* of the control against the *best possible version* of the experiment, offering an additional perspective on performance capabilities.
 
-Finally, while Batch Normalization in this context successfully improved convergence speed, there is potential for further architectural enhancements. Future iterations of this research could investigate the inclusion of skip connections (residual connections) alongside normalization layers. The lectures on Deep Leaning suggest that such combinations can enhance both convergence speed and final accuracy, particularly in deeper networks. {% cite He2016DeepRL %}
+Finally, the volatility observed in the Batch Normalization test loss suggests that while the technique accelerates learning, it may introduce instability if the learning rate is not adjusted accordingly. The model appears to converge rapidly to a low training loss, but the volatile test loss indicates it may be overfitting to batch-specific statistics. This suggests that future experiments with Batch Normalization should implement learning rate scheduled to mitigate this effect {% cite %}.
 
 ## Conclusion
 
-The results indicate that while Batch Normalization did not trigger a massive  jump in raw accuracy for this specific task, it is nevertheless an essential component of the architecture. The  gain in accuracy, combined with a drastic reduction in training time (convergence at epoch 10 vs. 18), confirms that Batch Normalization effectively mitigates optimization difficulties. It stabilizes the learning process, allowing the model to learn faster and generalize better.
+The results indicate that while Batch Normalization did not trigger a massive  jump in raw accuracy for this specific task, it is nevertheless an essential component of the architecture. The  gain in accuracy, combined with a drastic reduction in training time (convergence at epoch 25 vs. 49), confirms that Batch Normalization effectively mitigates optimization difficulties. It stabilizes the learning process, allowing the model to learn faster and generalize (somewhat) better.
 
 This study was limited to a single dataset and architecture. The results suggest that normalization is critical for complex image data, but the magnitude of improvement may vary across different domains. Future work will expand this experimental setup to investigate other datasets, determining if the  accuracy gain and  speedup are consistent behaviors across different types of visual data.
 
