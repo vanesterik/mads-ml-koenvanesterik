@@ -10,7 +10,7 @@ tags: machine-learning report
 | **Student**   | Koen van Esterik                      |
 | **Institute** | HAN University of Applied Sciences    |
 | **Course**    | Deep Learning & Deployment (2025 P1A) |
-| **Subject**   | Recurrent Neural Networks (RNNs)                            |
+| **Subject**   | Recurrent Neural Networks (RNNs)      |
 
 ## Introduction
 
